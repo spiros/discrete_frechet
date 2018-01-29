@@ -47,7 +47,7 @@ Parameters
 
 Returns
 -------
-dist: float64
+    dist: float64
     The discrete Frechet distance between curves `P` and `Q`.
 
 Examples
