@@ -6,43 +6,16 @@ import numpy as np
 
 __all__ = [ 'frdist' ]
 
-def _eucdist(point1, point2):
-    """ 
-    Computes the Euclidean distance between
-    two points in two-dimensional space.
-    More information: 
-    https://en.wikipedia.org/wiki/Euclidean_distance#Two_dimensions
-
-    Parameters
-    ----------
-    point1 : Input array of two points.
-    point2 : Input array of two points.
-
-    Returns
-    -------
-    The Euclidean distance (float64) between points `point1` 
-    and `point2`.
-
-    Examples
-    --------
-    >>> P=[0,0]
-    >>> Q=[5,5]
-    >>> _eucdist(P,Q)
-    >>> 7.0710678118654755
-    """
-    return math.sqrt(((point1[0] - point2[0])**2)+((point1[1] - point2[1])**2))
-
-
 def _c(ca,i,j,p,q):
 
     if ca[i,j] > -1:
         return ca[i,j]
     elif i == 0 and j == 0:
-        ca[i,j] = _eucdist(p[i],q[j])
+        ca[i,j] = np.linalg.norm(p[i]-q[j])
     elif i > 0 and j == 0:
-        ca[i,j] = max( _c(ca,i-1,0,p,q), _eucdist(p[i], q[j]) )
+        ca[i,j] = max( _c(ca,i-1,0,p,q), np.linalg.norm(p[i]-q[j]) )
     elif i == 0 and j > 0:
-        ca[i,j] = max( _c(ca,0,j-1,p,q), _eucdist(p[i],q[j]))
+        ca[i,j] = max( _c(ca,0,j-1,p,q), np.linalg.norm(p[i]-q[j]) )
     elif i > 0 and j > 0:
         ca[i,j] = max(                                                     \
             min(                                                           \
@@ -50,7 +23,7 @@ def _c(ca,i,j,p,q):
                 _c(ca,i-1,j-1,p,q),                                        \
                 _c(ca,i,j-1,p,q)                                           \
             ),                                                             \
-            _eucdist(p[i],q[j])                                            \
+            np.linalg.norm(p[i]-q[j])                                            \
             )                                                          
     else:
         ca[i,j] = float('inf')
@@ -117,6 +90,8 @@ def frdist(p,q):
     >>> frdist(P,Q)
     >>> 0
     """
+    p = np.array(p, np.float64)
+    q = np.array(q, np.float64)
 
     len_p = len(p)
     len_q = len(q)
@@ -131,4 +106,3 @@ def frdist(p,q):
 
     dist = _c(ca,len_p-1,len_q-1,p,q)
     return dist
-
