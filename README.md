@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/spiros/discrete_frechet.svg?branch=master)](https://travis-ci.org/spiros/discrete_frechet)
 
+[![DOI](https://zenodo.org/badge/118257492.svg)](https://zenodo.org/badge/latestdoi/118257492)
+
 Discrete Fréchet distance
 =========================
 
