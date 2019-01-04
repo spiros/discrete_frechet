@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='frechetdist',
-      version='0.1',
+      version='0.2',
       description='Calculate discrete Frechet distance',
       url='https://github.com/spiros/discrete_frechet',
       author='Spiros Denaxas',
