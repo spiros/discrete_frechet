@@ -3,7 +3,7 @@ from setuptools import setup
 setup(name='frechetdist',
       version='0.1',
       description='Calculate discrete Frechet distance',
-      url='https://github.com/spiros/frechetdist',
+      url='https://github.com/spiros/discrete_frechet',
       author='Spiros Denaxas',
       author_email='s.denaxas@gmail.com',
       license='Apache License 2.0',
