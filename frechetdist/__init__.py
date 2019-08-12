@@ -1,2 +1,2 @@
-from . import *
-__version__ = '0.2'
+from frechetdist import frdist
+__version__ = '0.3'
