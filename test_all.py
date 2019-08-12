@@ -4,9 +4,6 @@ import os
 import numpy as np
 import pytest
 
-MYPATH = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, MYPATH + '/../')
-
 from frechetdist import frdist
 
 TEST_CASES = [
