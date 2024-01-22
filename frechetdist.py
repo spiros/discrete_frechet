@@ -98,10 +98,7 @@ def frdist(p, q):
 
     if len_p == 0 or len_q == 0:
         raise ValueError('Input curves are empty.')
-
-    if len_p != len_q or len(p[0]) != len(q[0]):
-        raise ValueError('Input curves do not have the same dimensions.')
-
+        
     ca = (np.ones((len_p, len_q), dtype=np.float64) * -1)
 
     dist = _c(ca, len_p-1, len_q-1, p, q)
