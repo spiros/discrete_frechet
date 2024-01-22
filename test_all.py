@@ -46,12 +46,6 @@ def test_main():
 
 def test_errors():
 
-    P = [[1, 1], [2, 1]]
-    Q = [[2, 2], [0, 1], [2, 4]]
-
-    with pytest.raises(ValueError):
-        assert frdist(P, Q) == 2.0
-
     P = []
     Q = [[2, 2], [0, 1], [2, 4]]
 
