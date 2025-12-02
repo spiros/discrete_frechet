@@ -13,12 +13,14 @@ the Fréchet distance between two arbitrary curves,
 as an alternative to using the exact Fréchet distance between a polygonal
 approximation of the curves or an approximation of this value.
 
-This is a Python 3.* implementation of the algorithm produced
+This is a Python 3.13 implementation of the algorithm produced
 in *Eiter, T. and Mannila, H., 1994. [Computing discrete Fréchet distance](http://www.kr.tuwien.ac.at/staff/eiter/et-archive/cdtr9464.pdf). Tech. 
 Report CD-TR 94/64, Information Systems Department, Technical University 
 of Vienna.*
 
+This implementation is iterative and does not use recursion.
 
+The original algorithm is described as:
 ```
 Function dF(P, Q): real;
     input: polygonal curves P = (u1, . . . , up) and Q = (v1, . . . , vq).
